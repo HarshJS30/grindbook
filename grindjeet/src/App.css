@@ -1,0 +1,136 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+html, body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.navbar{
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.logo{
+    background-color: transparent;
+    width: 15%;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto; 
+    font-style: normal;
+    color: #1565c0;
+    font-size: 1.2rem;
+}
+.logo img{
+    margin-left: 5rem;
+    width: 5rem;
+    height:4rem;
+    margin-right: 0.5rem;
+}
+.anchor{
+    background-color: transparent;
+    margin-left: 8rem;
+    width: 45%;
+    height: inherit;
+    display: flex;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.anchor li{
+    margin-right: 1.5rem;
+    color: #000;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500; 
+    font-style: normal;
+    font-size: 1.2rem;
+}
+.cta{
+    margin-right: 5rem;
+    width: 15%;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.cta button{
+    margin-right: 1rem;
+    width: 5.4rem;
+    height: 2.6rem;
+    border-radius: 8px;
+    border: none;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+}
+.blogs{
+    background-color: #ffa500;
+}
+.hero{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.hero h1{
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.3rem;
+    position: relative;
+    top: 80px;
+}
+.hero h2{
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 3.2rem;
+    position: relative;
+    top: 10px;
+}
+.hero span{
+    color: #673ab7;
+}
+.glow-orange {
+    background-color: #ffa500;
+    color: white;
+    font-family: "Inter Tight",sans-serif;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 20px #ffa500;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+    margin-right: 1.5rem;
+  }
+  
+@keyframes glow {
+from {
+    box-shadow: 0 0 10px #ffa500,
+                0 0 20px #ffa500;
+}
+to {
+    box-shadow: 0 0 20px #ffa500;
+}
+}
+.cta2{
+    background-color: transparent;
+    color: #ffa500;
+    font-family: "Inter Tight",sans-serif;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+}
