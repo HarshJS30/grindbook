@@ -226,13 +226,13 @@ to {
     font-family: "Inter Tight", sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 3.5rem;
+    font-size: 4rem;
 }
 .f1 span{
     font-family: "Playfair Display", serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 3.7rem;
+    font-size: 4rem;
     color: #673ab7;
     position: relative;
     top: -72px;
@@ -249,7 +249,7 @@ to {
 }
 .row-1, .row-2{
     background-color: transparent;
-    height: 39vh;
+    height: 36vh;
     display: flex;
     width: 100%;
 }
@@ -257,7 +257,7 @@ to {
 .card-1, .card-2, .card-3, .card-4, .card-5, .card-6 {
     background-color: #f0f0f0;
     position: relative;
-    top: -2rem;
+    top: -6rem;
     width: 33%;
     height: 12.5rem;
     margin: 1rem;
@@ -277,7 +277,7 @@ to {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 20px 90px rgba(0, 0, 0, 0.5s);
+    box-shadow: 0px 20px 90px rgba(0, 0, 0, 0.01);
     margin-bottom: 1rem;
 }
 .subheading h3{
@@ -291,6 +291,63 @@ to {
     margin-right: 1rem;
     font-family: "Inter Tight", serif;
     font-size: 1rem;
-    font-weight: 4S00;
+    font-weight: 450;
     color: #444444;
+}
+.contacts{
+    background-color: #cccccc;
+    box-shadow: 0px 20px 90px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 55vh;
+    width: 90%;
+    border-radius: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.ok{
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    height: 95%;
+}
+.name{
+    height: 30%;
+}
+.bars{
+    background-color: transparent;
+    width: 25%;
+    height: 90%;
+    margin-bottom: 2rem;
+    position: relative;
+    top: 2.5rem;
+    left: 5rem;
+}
+.bars h6{
+    font-family: "Inter Tight", serif;
+    font-size: 1.4rem;
+    font-weight: 450;
+    line-height: 0;
+    text-decoration: underline;
+    position: relative;
+    top: -3rem;
+    color: #000;
+}
+.name h1{
+    font-family: "Playfair Display", serif;
+    font-size: 2.8rem;
+    font-style: italic;
+    font-weight: 450;
+    color: #673ab7;
 }
