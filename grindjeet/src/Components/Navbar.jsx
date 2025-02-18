@@ -8,10 +8,9 @@ export default function Navbar(){
             </div>
             <div className="anchor">
                 <li>Home</li>
-                <li>About</li>
-                <li>My Journey</li>
-                <li>Resources</li>
-                <li>Contact</li>
+                <li>About Us</li>
+                <li>Testimonials</li>
+                <li>Contact Us</li>
             </div>
             <div className="cta">
                 <button className="sign">Sign in</button>

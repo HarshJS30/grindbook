@@ -52,7 +52,7 @@ html, body {
     font-optical-sizing: auto;
     font-weight: 500; 
     font-style: normal;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 .cta{
     margin-right: 5rem;
@@ -86,7 +86,7 @@ html, body {
     font-family: "Inter Tight", sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 3.3rem;
+    font-size: 3.5rem;
     position: relative;
     top: 80px;
 }
@@ -94,7 +94,7 @@ html, body {
     font-family: "Playfair Display", serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 3.2rem;
+    font-size: 3rem;
     position: relative;
     top: 10px;
 }
@@ -105,7 +105,7 @@ html, body {
     background-color: #ffa500;
     color: white;
     font-family: "Inter Tight",sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     padding: 15px 30px;
     border: none;
     border-radius: 8px;
@@ -128,9 +128,75 @@ to {
 }
 .cta2{
     background-color: transparent;
-    color: #ffa500;
     font-family: "Inter Tight",sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     padding: 15px 30px;
-    border: none;
+    color: #1565c0;
+    border: 2px solid #1565c0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.about{
+    height: 90vh;
+    display: flex;
+    margin-top: 5rem;
+}
+.aboutcontent{
+    background-color: transparent;
+    height: 90vh;
+    width: 50%;
+    margin-right: 8rem;
+    margin-left: 3rem;
+}
+.about img {
+    box-shadow: -20px 20px 90px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    height: 80vh;
+}
+.about h1{
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.5rem;
+}
+.strategy{
+    position: relative;
+    top: -45px;
+}
+.about span{
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 3.7rem;
+    color: #673ab7;
+    position: relative;
+    top: -92px;
+}
+.about p{
+    font-family: "Inter Tight", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.2rem;
+    position: relative;
+    top: -95px;
+}
+.buttons1 button{
+    font-family: "Inter Tight",sans-serif;
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    position: relative;
+    top: -50px;
+}
+.log{
+    background-color: #ffa500;
+    margin-right: 2rem;
+    color: #fff;
+    border: #fff;
+    box-shadow: -20px 20px 90px rgba(0, 0, 0, 0.1);
+}
+.rev{
+    background-color: transparent;
+    color: #673ab7;
+    border-color: #673ab7;
 }

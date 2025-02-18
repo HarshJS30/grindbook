@@ -10,7 +10,7 @@ export default function MainPage(){
                 backgroundSize: "cover",
                 opacity: 0.9,
             }}>
-            <h1>Grind Smarter, Level Up faster</h1>
+            <h1>Grind Smarter, Level Up Faster</h1>
             <h2>Track. Improve.<span> Conquer.</span></h2>
             <div className="buttons">
                 <button className="glow-orange">Get Started for free</button>
