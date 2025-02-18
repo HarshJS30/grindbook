@@ -201,3 +201,96 @@ to {
     color: #673ab7;
     border-color: #673ab7;
 }
+.features {
+    position: relative; 
+    height: 125vh;
+}
+
+.features::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../src/assets/Mesh\ Gradient_001.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4; 
+    z-index: -1; 
+    border-radius: 15px;
+    box-shadow: -20px 20px 90px rgba(0, 0, 0, 0.7);
+}
+.f1 h1{
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.5rem;
+}
+.f1 span{
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 3.7rem;
+    color: #673ab7;
+    position: relative;
+    top: -72px;
+}
+.f1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+}
+.row-1, .row-2{
+    background-color: transparent;
+    height: 39vh;
+    display: flex;
+    width: 100%;
+}
+
+.card-1, .card-2, .card-3, .card-4, .card-5, .card-6 {
+    background-color: #f0f0f0;
+    position: relative;
+    top: -2rem;
+    width: 33%;
+    height: 12.5rem;
+    margin: 1rem;
+    border-radius: 20px;
+    box-shadow: -20px 20px 90px rgba(0, 0, 0, 0.2);
+    border: 2px dashed #cccccc;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+    align-items: center;
+}
+.subheading{
+    background-color: #fff;
+    height: 4rem;
+    border-radius: 10px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 20px 90px rgba(0, 0, 0, 0.5s);
+    margin-bottom: 1rem;
+}
+.subheading h3{
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 650;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+.feat{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-family: "Inter Tight", serif;
+    font-size: 1rem;
+    font-weight: 4S00;
+    color: #444444;
+}
