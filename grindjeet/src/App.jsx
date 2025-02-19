@@ -1,20 +1,19 @@
-import  Navbar  from "./Components/Navbar";
-import './App.css';
-import MainPage from "./Components/HeroPage";
-import About from "./Components/AboutPage";
-import Features from "./Components/Features";
-import Contact from "./Components/Contact";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePageContent from "./Components/HomePage"; 
+import Signup from './Components/Signup';
+import Login from './Components/Login';
 
 function App() {
-    return (
-        <>
-            <Navbar />
-            <MainPage />
-            <About />
-            <Features />
-            <Contact />
-        </>
-    );
+  return (
+    <>
+        <Routes>
+            <Route path='/' element={<HomePageContent />}></Route>
+            <Route path='/signup' element={<Signup />}></Route>
+            <Route path='/login' element={<Login />}></Route>
+        </Routes>
+    </>
+  );
 }
 
 export default App;

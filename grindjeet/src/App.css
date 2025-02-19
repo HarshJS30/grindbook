@@ -349,3 +349,114 @@ to {
     font-weight: 450;
     color: #7a5299;
 }
+.auth {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.signup {
+    background: radial-gradient(circle at top,
+    rgba(51, 153, 255, 0.4) 0%,rgba(51, 153, 255, 0.1) 15%,
+    rgba(255, 255, 255, 1) 40%);
+    width: 25rem;
+    height: 33rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+}
+.signup img{
+    width: 5rem;
+    height: 4.4rem;
+}
+.signup h2{
+    font-family: "Inter Tight", serif;
+    font-size: 1.4rem;
+    font-weight: 650;
+}
+.signup h6{
+    font-family: "Inter Tight", serif;
+    font-size: 1rem;
+    font-weight: 250;
+    position: relative;
+    top: -45px;
+}
+.signup .form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -50px;
+}
+.form label{
+    font-family: "Inter Tight", serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.form input{
+    font-family: "Inter Tight", serif;
+    font-size: 0.8rem;
+    width: 18rem;
+    margin-bottom: 1rem;
+    padding: 0.4rem;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+.p{
+    font-family: "Inter Tight", serif;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    color: #333333;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    left: 20%;
+}
+.broken-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;  
+    width: fit-content;  
+    position: relative;
+}
+  
+.line {
+    width: 9rem; 
+    height: 2px;  
+    background-color: #666666; 
+    
+}
+  
+.or {
+    font-size: 14px;
+    color: #666666;
+    font-family: "Inter Tight", serif;
+}
+.form button{
+    height: 2rem;
+    background-color: #000;
+    color: #fff;
+    font-family: "Inter Tight", serif;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    margin-top: 0.6rem;
+}
+.form .link{
+    height: 2rem;
+    background-color: #f0f0f0;
+    color: #1565c0;
+    font-family: "Inter Tight", serif;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    text-decoration: none;
+}

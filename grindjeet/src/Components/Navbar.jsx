@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logoo.png";
 export default function Navbar(){
+    const navigate = useNavigate();
     return<>
         <div className="navbar">
             <div className="logo">
@@ -13,7 +15,7 @@ export default function Navbar(){
                 <li>Contact Us</li>
             </div>
             <div className="cta">
-                <button className="sign">Sign in</button>
+                <button className="sign" onClick={()=>navigate('signup')}>Sign in</button>
                 <button className="blogs">Blogs</button>
             </div>
         </div>
