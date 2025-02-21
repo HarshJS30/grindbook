@@ -460,3 +460,15 @@ to {
     margin-top: 1rem;
     text-decoration: none;
 }
+.error{
+    position: relative;
+    top: -60px;
+    font-family: "Playfair Display", serif;
+    font-size: 12px;
+    color: red;
+}
+.eye-icon{
+    position: relative;
+    left: -25px;
+    top: 3.5px;
+}
