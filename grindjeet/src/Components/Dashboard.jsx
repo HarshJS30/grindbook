@@ -4,9 +4,10 @@ import logo from '../assets/logoo.png';
 import avatar from '../assets/user.png';
 import '../assets/grindbook.css';
 import { FaClock, FaBookmark, FaSearch, FaTags } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+    const navigate = useNavigate();
     return (
         <>
             <div
@@ -29,7 +30,7 @@ export default function Dashboard() {
                         <FaSearch className="search-icon" />
                         <input type="search" className="search" placeholder="search by name" />
                     </div>
-                    <button>Add question</button>
+                    <button onClick={()=>navigate('/form')}>Add question</button>
                     <div className="avatar">
                         <img src={avatar} alt="Profile" className="profile" />
                         <label>My Profile</label>
