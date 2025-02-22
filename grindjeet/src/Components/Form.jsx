@@ -1,17 +1,86 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/grindbook.css';
 import { useNavigate } from 'react-router-dom';
+import { useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import Placeholder from '@tiptap/extension-placeholder';
+import '../assets/grindbook.css';
+
+const MenuBar = ({ editor }) => {
+    if (!editor) {
+        return null;
+    }
+
+    return (
+        <div className="editor-menu">
+            <button
+                onClick={() => editor.chain().focus().toggleBold().run()}
+                className={editor.isActive('bold') ? 'is-active' : ''}
+            >
+                bold
+            </button>
+            <button
+                onClick={() => editor.chain().focus().toggleItalic().run()}
+                className={editor.isActive('italic') ? 'is-active' : ''}
+            >
+                italic
+            </button>
+            <button
+                onClick={() => editor.chain().focus().toggleStrike().run()}
+                className={editor.isActive('strike') ? 'is-active' : ''}
+            >
+                strike
+            </button>
+            <button
+                onClick={() => editor.chain().focus().toggleBulletList().run()}
+                className={editor.isActive('bulletList') ? 'is-active' : ''}
+            >
+                bullet list
+            </button>
+            <button
+                onClick={() => editor.chain().focus().toggleOrderedList().run()}
+                className={editor.isActive('orderedList') ? 'is-active' : ''}
+            >
+                ordered list
+            </button>
+            <button
+                onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+                className={editor.isActive('codeBlock') ? 'is-active' : ''}
+            >
+                code block
+            </button>
+        </div>
+    );
+};
+
+const TiptapEditor = ({ content, onChange, placeholder }) => {
+    const editor = useEditor({
+        extensions: [
+            StarterKit,
+            Placeholder.configure({
+                placeholder: placeholder,
+            }),
+        ],
+        content: content,
+        onUpdate: ({ editor }) => {
+            onChange(editor.getHTML());
+        },
+    });
+
+    return (
+        <div className="editor-container">
+            <MenuBar editor={editor} />
+            <EditorContent editor={editor} />
+        </div>
+    );
+};
 
 export default function Form() {
     const navigate = useNavigate();
-
-    // Predefined tags
     const tags = [
         'Arrays', 'DP', 'Trees', 'Graph', 'Strings', 'Recursion',
         'Sorting', 'Searching', 'Linked List', 'Hashmaps', 'Stacks', 'Queues'
     ];
 
-    // State for form fields
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
     const [learnings, setLearnings] = useState('');
@@ -19,13 +88,12 @@ export default function Form() {
     const [selectedTags, setSelectedTags] = useState([]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    
     useEffect(() => {
         const verifyUser = async () => {
             try {
                 const response = await fetch('http://localhost:4000/verify', {
                     method: 'POST',
-                    credentials: 'include', 
+                    credentials: 'include',
                 });
 
                 if (!response.ok) {
@@ -57,7 +125,7 @@ export default function Form() {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         const questionData = {
             title,
@@ -73,7 +141,7 @@ export default function Form() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                credentials: 'include', 
+                credentials: 'include',
                 body: JSON.stringify(questionData),
             });
 
@@ -107,6 +175,7 @@ export default function Form() {
                         onChange={(e) => setTitle(e.target.value)}
                         required
                     />
+
                     <label htmlFor="link">Question Link</label>
                     <input
                         type="text"
@@ -117,15 +186,14 @@ export default function Form() {
                         onChange={(e) => setLink(e.target.value)}
                         required
                     />
+
                     <label htmlFor="learnings">What did the question teach you?</label>
-                    <textarea
-                        id="learnings"
+                    <TiptapEditor
+                        content={learnings}
+                        onChange={setLearnings}
                         placeholder="Tell the crisp of what you learnt from the question"
-                        className="form-textarea"
-                        value={learnings}
-                        onChange={(e) => setLearnings(e.target.value)}
-                        required
                     />
+
                     <label htmlFor="tags">Select relevant tags</label>
                     <div className="tag-dropdown">
                         <button
@@ -151,14 +219,14 @@ export default function Form() {
                             </div>
                         )}
                     </div>
+
                     <label htmlFor="notes">Additional Notes</label>
-                    <textarea
-                        id="notes"
+                    <TiptapEditor
+                        content={notes}
+                        onChange={setNotes}
                         placeholder="Additional notes or the solution of the question"
-                        className="form-textarea"
-                        value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
                     />
+
                     <button type="submit" className="btn">
                         Add Question
                     </button>

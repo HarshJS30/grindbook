@@ -1,4 +1,3 @@
-// AuthVerification.js
 const User = require('../Models/Model');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');

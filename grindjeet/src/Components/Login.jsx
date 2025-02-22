@@ -23,7 +23,7 @@ export default function Login() {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // Include cookies
+        credentials: 'include', 
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
