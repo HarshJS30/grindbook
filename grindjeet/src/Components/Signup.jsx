@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import coverImage from '../assets/hey.png';
@@ -42,7 +43,7 @@ export default function Signup() {
 
   return (
     <>
-      <div 
+      <motion.div 
         className="auth" 
         style={{ 
           backgroundImage: `url(${coverImage})`,
@@ -52,14 +53,45 @@ export default function Signup() {
           minHeight: '100vh',
           width: '100%'
         }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
       >
-        <div className="signup">
-          <img src={logo} alt="GrindBook Logo" />
-          <h2>Welcome to GrindBook</h2>
-          <h6>Please enter your details to sign in</h6>
+        <motion.div 
+          className="signup"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+        >
+          <motion.img 
+            src={logo} 
+            alt="GrindBook Logo"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+          />
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+          >
+            Welcome to GrindBook
+          </motion.h2>
+          <motion.h6 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+          >
+            Please enter your details to sign in
+          </motion.h6>
           {error && <p className='error'>{error}</p>}
-          
-          <form className='form' onSubmit={handleSubmit}>
+          <motion.form 
+            className='form' 
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <label>Email</label>
             <input 
               type="email" 
@@ -67,9 +99,8 @@ export default function Signup() {
               onChange={(e) => setEmail(e.target.value)} 
               required 
             />
-
             <label>Password</label>
-            <div className="password-wrapper">
+            <div className="password-container">
               <input 
                 type={showPassword ? 'text' : 'password'} 
                 placeholder='Enter your Password' 
@@ -80,20 +111,36 @@ export default function Signup() {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
-
-            <button type="submit">Sign in</button>
+            <motion.button 
+              type="submit"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.7 }}
+            >
+              Sign in
+            </motion.button>
             <Link className='p' to={'/login'}>Already Have an account? Log in</Link>
-            
-            <div className="broken-line">
+            <motion.div 
+              className="broken-line"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.8 }}
+            >
               <div className="line"></div>
               <span className="or">Or</span>
               <div className="line"></div>
-            </div>
-            
-            <Link className='link'>Sign in using Google</Link>
-          </form>
-        </div>
-      </div>
+            </motion.div>
+            <motion.Link 
+              className='link'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.9 }}
+            >
+              Sign in using Google
+            </motion.Link>
+          </motion.form>
+        </motion.div>
+      </motion.div>
     </>
   );
 }

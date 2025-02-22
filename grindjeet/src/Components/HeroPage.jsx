@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import grindjeet from "../assets/cover1.jpg";
-export default function MainPage(){
-    return<div>
+
+export default function MainPage() {
+    return (
         <div
             className="hero"
             style={{
@@ -9,13 +11,46 @@ export default function MainPage(){
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 opacity: 0.9,
-            }}>
-            <h1>Grind Smarter, Level Up Faster</h1>
-            <h2>Track. Improve.<span> Conquer.</span></h2>
-            <div className="buttons">
-                <button className="glow-orange">Get Started for free</button>
-                <button className="cta2">Know More</button>
-            </div>
+            }}
+        >
+            <motion.h1 
+                initial={{ y: -50, opacity: 0 }} 
+                animate={{ y: 0, opacity: 1 }} 
+                transition={{ duration: 1, ease: "easeOut" }}
+            >
+                Grind Smarter, Level Up Faster
+            </motion.h1>
+
+            <motion.h2 
+                initial={{ y: -30, opacity: 0 }} 
+                animate={{ y: 0, opacity: 1 }} 
+                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+            >
+                Track. Improve.<span> Conquer.</span>
+            </motion.h2>
+
+            <motion.div 
+                className="buttons"
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+            >
+                <motion.button 
+                    className="glow-orange"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    Get Started for free
+                </motion.button>
+                
+                <motion.button 
+                    className="cta2"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    Know More
+                </motion.button>
+            </motion.div>
         </div>
-    </div>
+    );
 }

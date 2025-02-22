@@ -585,3 +585,235 @@ label {
       transform: translateY(0);
   }
 }
+/* Add these media queries after your existing CSS */
+
+@media screen and (max-width: 1200px) {
+  .dashbar {
+      flex-wrap: wrap;
+      padding: 1rem;
+  }
+
+  .search-container {
+      width: 60%;
+      left: 0;
+  }
+
+  .profile {
+      left: 0;
+  }
+
+  .avatar label {
+      left: 0;
+  }
+
+  .table {
+      flex-direction: column;
+  }
+
+  .left-side {
+      width: 100%;
+      height: auto;
+  }
+
+  .right-side {
+      width: 100%;
+  }
+
+  .question-cards {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Question Detail Page */
+  .content {
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  .tree-img {
+      width: 250px;
+      margin: 0 auto;
+  }
+
+  .details {
+      padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashbar {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .search-container {
+      width: 90%;
+      margin: 1rem 0;
+  }
+
+  .avatar {
+      align-items: center;
+      margin: 1rem 0;
+  }
+
+  .tagname {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .question-cards {
+      grid-template-columns: 1fr;
+      padding: 0.5rem;
+  }
+
+  .question-card {
+      height: auto;
+      min-height: 18rem;
+  }
+
+  /* Form Elements */
+  .form-content-container {
+      padding: 1rem;
+  }
+
+  .editor-menu {
+      flex-wrap: wrap;
+      gap: 0.25rem;
+  }
+
+  .editor-menu button {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+  }
+
+  /* Question Detail Page */
+  .details h1 {
+      font-size: 2rem;
+  }
+
+  .details p {
+      font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-container {
+      width: 100%;
+  }
+
+  .search {
+      width: 90%;
+      left: 0;
+  }
+
+  .dashbar button {
+      width: 100%;
+      left: 0;
+      margin-top: 1rem;
+  }
+
+  .tagname {
+      grid-template-columns: 1fr;
+  }
+
+  .tagname p {
+      text-align: center;
+  }
+
+  .question-card {
+      margin: 0.5rem 0;
+  }
+
+  .qtitle {
+      font-size: 14px;
+  }
+
+  .wlearn {
+      font-size: 13px;
+  }
+
+  .qtags {
+      flex-wrap: wrap;
+      height: auto;
+      top: 2rem;
+  }
+
+  .qtags p {
+      margin-bottom: 0.3rem;
+  }
+
+  /* Form Elements */
+  .tag-dropdown-content {
+      max-height: 200px;
+      overflow-y: auto;
+  }
+
+  .form-textarea {
+      min-height: 150px;
+  }
+
+  /* Question Detail Page */
+  .tree-img {
+      width: 200px;
+  }
+
+  .details {
+      padding: 1rem;
+  }
+
+  .details h1 {
+      font-size: 1.5rem;
+  }
+
+  .loading, .error {
+      width: 80%;
+      font-size: 1rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .question-card,
+  .tree-img,
+  .tag-option,
+  .editor-menu button {
+      cursor: default;
+  }
+
+  .details a {
+      padding: 0.5rem 0;
+  }
+
+  .editor-menu {
+      padding: 1rem;
+  }
+
+  .editor-menu button {
+      padding: 0.5rem 1rem;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .search-container {
+      width: 100%;
+  }
+
+  .search-icon {
+      left: 10px;
+  }
+
+  .search {
+      padding-left: 30px;
+      font-size: 14px;
+  }
+
+  .qtitle {
+      height: auto;
+      min-height: 4rem;
+      padding: 0.5rem;
+  }
+
+  .details button {
+      width: 100%;
+      margin-top: 1rem;
+  }
+}

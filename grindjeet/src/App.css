@@ -472,3 +472,317 @@ to {
     left: -25px;
     top: 3.5px;
 }
+/* FAQ.css */
+.faq {
+    background-color: #fff;
+    position: relative;
+    top: -1.8rem;
+    height: 130vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.asked {
+    background-color: transparent;
+    width: 85rem;
+    height: 48vh;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.asked h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.7rem;
+    font-weight: 10;
+    margin-bottom: -2.2rem;
+}
+
+.rq {
+    background-color: transparent;
+    width: 90%;
+    height: 78vh;
+    position: relative;
+    left: 3rem;
+    background-color: #f8f8ff;
+    padding: 2rem;
+    border-radius: 20px;
+    overflow: hidden; 
+}
+
+.faq-item {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1rem;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-family: 'Inter-Tight', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 100;
+    color: #000;
+    margin-bottom: 1.8rem;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    color: #4299e1;
+}
+
+.toggle-icon.open {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    margin-top: 1rem;
+    padding: 0 0.5rem; /* Remove vertical padding */
+    background: transparent;
+    color: #444444;
+    height: 0; /* Initially collapsed */
+    overflow: hidden;
+    transition: height 0.3s ease; /* Smooth height transition */
+}
+
+.faq-answer p {
+    margin: 0;
+    color: #4a5568;
+    font-family: "Inter-Tight", sans-serif;
+    font-weight: 600;
+    line-height: 1.6;
+}
+@media screen and (max-width: 1200px) {
+    .logo img {
+        margin-left: 2rem;
+        width: 4rem;
+        height: 3rem;
+    }
+
+    .anchor {
+        margin-left: 2rem;
+        width: 60%;
+    }
+
+    .cta {
+        margin-right: 2rem;
+    }
+
+    .about {
+        flex-direction: column;
+        height: auto;
+        margin-top: 2rem;
+    }
+
+    .aboutcontent {
+        width: 90%;
+        margin: 1rem auto;
+        text-align: center;
+    }
+
+    .about img {
+        display: none; /* Hide image on smaller screens */
+    }
+
+    .row-1, .row-2 {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card-1, .card-2, .card-3, .card-4, .card-5, .card-6 {
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    .features {
+        height: auto;
+        padding: 2rem 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .logo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo img {
+        margin: 0;
+    }
+
+    .anchor {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .anchor li {
+        margin: 0.5rem 0;
+    }
+
+    .cta {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .glow-orange, .cta2 {
+        width: 80%;
+        margin: 0.5rem auto;
+        text-align: center;
+    }
+
+    .about h1 {
+        font-size: 2.5rem;
+    }
+
+    .about span {
+        font-size: 2.7rem;
+        top: -45px;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+
+    .buttons1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons1 button {
+        margin: 0.5rem 0;
+    }
+
+    .f1 h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .f1 span {
+        font-size: 2.5rem;
+        top: -35px;
+    }
+
+    .contacts {
+        width: 95%;
+    }
+
+    .group {
+        flex-direction: column;
+    }
+
+    .bars {
+        width: 90%;
+        left: 0;
+        margin: 1rem auto;
+    }
+
+    .name {
+        text-align: center;
+    }
+
+    .name h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .signup {
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .form input {
+        width: 90%;
+    }
+
+    .broken-line {
+        width: 90%;
+    }
+
+    .line {
+        width: 40%;
+    }
+
+    .asked h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .rq {
+        width: 95%;
+        left: 0;
+        padding: 1rem;
+    }
+
+    .faq-question h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 320px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .about h1 {
+        font-size: 2rem;
+    }
+
+    .about span {
+        font-size: 2rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .cta button,
+    .glow-orange,
+    .cta2 {
+        cursor: default;
+    }
+
+    .faq-question {
+        padding: 1rem 0;
+    }
+}

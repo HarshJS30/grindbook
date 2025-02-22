@@ -4,6 +4,7 @@ import About from "./AboutPage";
 import Features from "./Features";
 import Contact from "./Contact";
 import Navbar from "./Navbar";
+import FAQ from './FAQ';
 
 function HomePageContent() {
   return (
@@ -12,6 +13,7 @@ function HomePageContent() {
         <MainPage />
         <About />
         <Features />
+        <FAQ />
         <Contact />
     </>
   );

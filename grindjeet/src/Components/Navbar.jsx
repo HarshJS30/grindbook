@@ -11,7 +11,8 @@ export default function Navbar(){
             <div className="anchor">
                 <li>Home</li>
                 <li>About Us</li>
-                <li>Testimonials</li>
+                <li>Features</li>
+                <li>FAQs</li>
                 <li>Contact Us</li>
             </div>
             <div className="cta">
