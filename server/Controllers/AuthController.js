@@ -17,8 +17,10 @@ module.exports.Signup = async (req, res, next) => {
 
         const token = createSecretToken(user._id);
         res.cookie('token', token, {
-            withCredentials: true,
-            httpOnly: false,
+            httpOnly: true,         // Prevents JS access (security)
+            secure: true,           // Required for HTTPS
+            sameSite: 'none',       // Allows cross-site usage
+            maxAge: 24 * 60 * 60 * 1000 // 1 day expiration
         });
         res.status(201).json({ message: "User signed in successfully!", success: true, user });
     } catch (err) {
@@ -27,28 +29,30 @@ module.exports.Signup = async (req, res, next) => {
     }
 };
 
-module.exports.Login = async(req,res,next)=>{
-    try{
-        const{email,password} = req.body;
-        if(!email || !password){
-            return res.status(400).json({message:"All fields required!"})
+module.exports.Login = async (req, res, next) => {
+    try {
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return res.status(400).json({ message: "All fields required!" });
         }
-        const user = await User.findOne({email});
-        if (!user){
-            return res.status(400).json({messsage:"Email not registered yet!"});
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: "Email not registered yet!" });
         }
-        const auth = await bcrypt.compare(password,user.password)
-        if(!auth){
-            return res.status(400).json({message:"Password didnt match"})
+        const auth = await bcrypt.compare(password, user.password);
+        if (!auth) {
+            return res.status(400).json({ message: "Password didn’t match" });
         }
         const token = createSecretToken(user._id);
-        res.cookie("token", token, {
-            withCredentials: true,
-            httpOnly: false,
+        res.cookie('token', token, {
+            httpOnly: true,         // Prevents JS access
+            secure: true,           // Required for HTTPS
+            sameSite: 'none',       // Allows cross-site usage
+            maxAge: 24 * 60 * 60 * 1000 // 1 day expiration
         });
         res.status(201).json({ message: "User logged in successfully", success: true });
-    }catch(err){
+    } catch (err) {
         console.error(err);
         res.status(500).json({ message: "An error occurred during login." });
     }
-}
+};
