@@ -91,7 +91,7 @@ export default function Form() {
     useEffect(() => {
         const verifyUser = async () => {
             try {
-                const response = await fetch('http://localhost:4000/verify', {
+                const response = await fetch('https://grindbook.onrender.com/verify', {
                     method: 'POST',
                     credentials: 'include',
                 });
@@ -136,7 +136,7 @@ export default function Form() {
         };
 
         try {
-            const response = await fetch('http://localhost:4000/api/add-question', {
+            const response = await fetch('https://grindbook.onrender.com/api/add-question', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

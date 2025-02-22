@@ -16,7 +16,7 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/questions', {
+                const response = await fetch('https://grindbook.onrender.com/api/questions', {
                     method: 'GET',
                     credentials: 'include',
                 });

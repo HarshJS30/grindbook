@@ -15,7 +15,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/login', {
+      const response = await fetch('https://grindbook.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,11 +27,11 @@ export default function Login() {
       if (response.ok) {
         navigate('/dashboard');
       } else {
-        setError(data.message);
+        setError(data.message || 'Invalid email or password');
       }
     } catch (err) {
       console.error(err);
-      setError("Something up on our Side");
+      setError('Something went wrong on our side. Please try again later.');
     }
   };
 
@@ -78,7 +78,6 @@ export default function Login() {
           >
             Please enter your details to log in
           </motion.h6>
-          {error && <p className="error">{error}</p>}
           <motion.form 
             className='form' 
             onSubmit={handleSubmit}
@@ -86,6 +85,16 @@ export default function Login() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
+            {error && (
+              <motion.div
+                style={{ color: '#dc2626', fontSize: '12px', background: 'none', boxShadow: 'none', border: 'none', marginBottom: '8px' }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {error}
+              </motion.div>
+            )}
             <label>Email</label>
             <input 
               type="email" 

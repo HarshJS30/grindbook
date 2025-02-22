@@ -21,7 +21,7 @@ export default function Signup() {
     }
 
     try {
-      const response = await fetch('http://localhost:4000/signup', {
+      const response = await fetch('https://grindbook.onrender.com/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,11 +33,11 @@ export default function Signup() {
       if (response.ok) {
         navigate('/dashboard');
       } else {
-        setError(data.message);
+        setError(data.message || 'Invalid email or password');
       }
     } catch (err) {
       console.error(err);
-      setError("Something went wrong. Please try again.");
+      setError('Something went wrong. Please try again.');
     }
   };
 
@@ -84,7 +84,6 @@ export default function Signup() {
           >
             Please enter your details to sign in
           </motion.h6>
-          {error && <p className='error'>{error}</p>}
           <motion.form 
             className='form' 
             onSubmit={handleSubmit}
@@ -92,6 +91,16 @@ export default function Signup() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
+            {error && (
+              <motion.div
+                style={{ color: '#dc2626', fontSize: '12px', background: 'none', boxShadow: 'none', border: 'none', marginBottom: '8px' }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {error}
+              </motion.div>
+            )}
             <label>Email</label>
             <input 
               type="email" 
@@ -103,7 +112,7 @@ export default function Signup() {
             <div className="password-container">
               <input 
                 type={showPassword ? 'text' : 'password'} 
-                placeholder='Enter your Password' 
+                placeholder="Enter your Password" 
                 onChange={(e) => setPassword(e.target.value)} 
                 required 
               />

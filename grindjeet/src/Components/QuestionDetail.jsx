@@ -14,9 +14,9 @@ export default function QuestionDetail() {
     useEffect(() => {
         const fetchQuestion = async () => {
             try {
-                const response = await fetch(`http://localhost:4000/api/questions/${id}`, {
+                const response = await fetch(`https://grindbook.onrender.com/api/questions/${id}`, {
                     method: 'GET',
-                    credentials: 'include',
+                    credentials: 'include', // Include cookies
                 });
 
                 if (!response.ok) {
@@ -68,7 +68,7 @@ export default function QuestionDetail() {
                 <img className="tree-img" src={tree} alt="Tree" />
                 <div className="details">
                     <h1>{question.title}</h1>
-                    <button onClick={()=>navigate('/dashboard')}>Back to Dashboard</button>
+                    <button onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
                     <p className="link">
                         <FaExternalLinkAlt className="icon" />
                         <strong> Link:</strong>
