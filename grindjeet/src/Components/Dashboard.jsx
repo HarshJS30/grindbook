@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import bgimg from '../assets/88.webp';
 import logo from '../assets/logoo.png';
 import avatar from '../assets/user.png';
@@ -8,6 +8,35 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
     const navigate = useNavigate();
+    const [questions, setQuestions] = useState([]);
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(null); 
+
+    useEffect(() => {
+        const fetchQuestions = async () => {
+            try {
+                const response = await fetch('http://localhost:4000/api/questions', {
+                    method: 'GET',
+                    credentials: 'include', 
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch questions');
+                }
+
+                const data = await response.json();
+                setQuestions(data); 
+            } catch (error) {
+                console.error('Error fetching questions:', error);
+                setError('Failed to fetch questions. Please try again.'); 
+            } finally {
+                setLoading(false); 
+            }
+        };
+
+        fetchQuestions();
+    }, []); 
+
     return (
         <>
             <div
@@ -30,7 +59,7 @@ export default function Dashboard() {
                         <FaSearch className="search-icon" />
                         <input type="search" className="search" placeholder="search by name" />
                     </div>
-                    <button onClick={()=>navigate('/form')}>Add question</button>
+                    <button onClick={() => navigate('/form')}>Add question</button>
                     <div className="avatar">
                         <img src={avatar} alt="Profile" className="profile" />
                         <label>My Profile</label>
@@ -60,27 +89,33 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div className="right-side">
-                        <div className="question-cards">
-                            {Array(10).fill(null).map((_, index) => (
-                                <div className="question-card" key={index}>
-                                    <div className="qtitle">
-                                        <h3>Two Sum Problem</h3>
+                        {loading ? (
+                            <p>Loading questions...</p> 
+                        ) : error ? (
+                            <p style={{ color: 'red' }}>{error}</p> 
+                        ) : (
+                            <div className="question-cards">
+                                {questions.map((question) => (
+                                    <div className="question-card" key={question._id}>
+                                        <div className="qtitle">
+                                            <h3>{question.title}</h3>
+                                        </div>
+                                        <div className="wlearn">
+                                            <p>{question.learnings}</p>
+                                        </div>
+                                        <div className="qtags">
+                                            {question.tags.map((tag, index) => (
+                                                <p key={index}>{tag}</p>
+                                            ))}
+                                        </div>
+                                        <Link to={`/question/${question._id}`}>See Whole Question</Link>
                                     </div>
-                                    <div className="wlearn">
-                                        <p>Learned how to use hashmap for O(n) solution instead of nested loops.</p>
-                                    </div>
-                                    <div className="qtags">
-                                        <p>Arrays</p>
-                                        <p>Hashtable</p>
-                                        <p>DP</p>
-                                    </div>
-                                    <Link>See Whole Question</Link>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }
