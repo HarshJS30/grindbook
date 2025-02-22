@@ -1,9 +1,9 @@
-// AuthMiddleware.js
+// AuthVerification.js
 const User = require('../Models/Model');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
-const authMiddleware = async (req, res, next) => {
+const UserVerification = async (req, res) => {
     try {
         const token = req.cookies.token || req.header("Authorization")?.split(" ")[1];
 
@@ -18,13 +18,11 @@ const authMiddleware = async (req, res, next) => {
             return res.status(401).json({ status: false, message: "User not found" });
         }
 
-        req.user = { id: user._id, email: user.email };
-        next();
-        
+        return res.json({ status: true, user: { id: user._id, email: user.email } });
     } catch (err) {
         console.error("Token verification error:", err);
         return res.status(500).json({ status: false, message: "Server error" });
     }
 };
 
-module.exports = authMiddleware;
+module.exports = { UserVerification };
