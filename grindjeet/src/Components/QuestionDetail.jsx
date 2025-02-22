@@ -16,7 +16,7 @@ export default function QuestionDetail() {
             try {
                 const response = await fetch(`https://grindbook.onrender.com/api/questions/${id}`, {
                     method: 'GET',
-                    credentials: 'include', // Include cookies
+                    credentials: 'include',
                 });
 
                 if (!response.ok) {
@@ -76,21 +76,21 @@ export default function QuestionDetail() {
                             {question.link}
                         </a>
                     </p>
-                    <p>
+                    <div>
                         <FaBook className="icon" /> <strong>Learnings:</strong>
                         <br />
-                        {question.learnings}
-                    </p>
+                        <div dangerouslySetInnerHTML={{ __html: question.learnings }} />
+                    </div>
                     <p>
                         <FaTags className="icon" /> <strong>Tags:</strong>
                         <br />
                         {question.tags.join(", ")}
                     </p>
-                    <p>
+                    <div>
                         <FaStickyNote className="icon" /> <strong>Notes:</strong>
                         <br />
-                        {question.notes}
-                    </p>
+                        <div dangerouslySetInnerHTML={{ __html: question.notes }} />
+                    </div>
                 </div>
             </div>
         </div>
