@@ -31,7 +31,26 @@ const getQuestions = async (req, res) => {
     }
 };
 
+const getQuestionById = async (req, res) => {
+    try {
+        const questionId = req.params.id; 
+        const userId = req.user.id; 
+
+        const question = await Question.findOne({ _id: questionId, userId });
+
+        if (!question) {
+            return res.status(404).json({ message: "Question not found" });
+        }
+
+        res.status(200).json(question); 
+    } catch (error) {
+        console.error("Error fetching question by ID:", error);
+        res.status(500).json({ message: "Failed to fetch question" });
+    }
+};
+
 module.exports = {
     createQuestion,
     getQuestions,
+    getQuestionById,
 };

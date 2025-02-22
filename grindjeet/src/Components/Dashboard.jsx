@@ -9,15 +9,15 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Dashboard() {
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
-    const [loading, setLoading] = useState(true); 
-    const [error, setError] = useState(null); 
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
                 const response = await fetch('http://localhost:4000/api/questions', {
                     method: 'GET',
-                    credentials: 'include', 
+                    credentials: 'include',
                 });
 
                 if (!response.ok) {
@@ -25,17 +25,17 @@ export default function Dashboard() {
                 }
 
                 const data = await response.json();
-                setQuestions(data); 
+                setQuestions(data);
             } catch (error) {
                 console.error('Error fetching questions:', error);
-                setError('Failed to fetch questions. Please try again.'); 
+                setError('Failed to fetch questions. Please try again.');
             } finally {
-                setLoading(false); 
+                setLoading(false);
             }
         };
 
         fetchQuestions();
-    }, []); 
+    }, []);
 
     return (
         <>
@@ -90,9 +90,24 @@ export default function Dashboard() {
                     </div>
                     <div className="right-side">
                         {loading ? (
-                            <p>Loading questions...</p> 
+                            <p>Loading questions...</p>
                         ) : error ? (
-                            <p style={{ color: 'red' }}>{error}</p> 
+                            <p style={{ color: 'red' }}>{error}</p>
+                        ) : questions.length === 0 ? (
+                            <div className="question-cards">
+                                <div className="question-card">
+                                    <div className="qtitle">
+                                        <h3>Sample Card</h3>
+                                    </div>
+                                    <div className="wlearn">
+                                        <p>Here you can write what you learnt</p>
+                                    </div>
+                                    <div className="qtags">
+                                        <p>Sample Tag</p>
+                                    </div>
+                                    <Link to="/form">Add a Question</Link>
+                                </div>
+                            </div>
                         ) : (
                             <div className="question-cards">
                                 {questions.map((question) => (
