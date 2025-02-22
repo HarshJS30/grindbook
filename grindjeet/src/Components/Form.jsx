@@ -43,6 +43,7 @@ const MenuBar = ({ editor }) => {
                 ordered list
             </button>
             <button
+                type="button" // Prevent form submission
                 onClick={() => editor.chain().focus().toggleCodeBlock().run()}
                 className={editor.isActive('codeBlock') ? 'is-active' : ''}
             >
@@ -197,7 +198,7 @@ export default function Form() {
                     <label htmlFor="tags">Select relevant tags</label>
                     <div className="tag-dropdown">
                         <button
-                            type="button"
+                            type="button" // Prevent form submission
                             className="tag-dropdown-button"
                             onClick={toggleDropdown}
                         >

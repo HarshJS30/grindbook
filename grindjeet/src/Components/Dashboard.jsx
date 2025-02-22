@@ -122,9 +122,10 @@ export default function Dashboard() {
                                     <div className="qtitle">
                                         <h3>{question.title}</h3>
                                     </div>
-                                    <div className="wlearn">
-                                        <p>{question.learnings}</p>
-                                    </div>
+                                    <div 
+                                        className="wlearn" 
+                                        dangerouslySetInnerHTML={{ __html: question.learnings }} 
+                                    />
                                     <div className="qtags">
                                         {question.tags.map((tag, index) => (
                                             <p key={index}>{tag}</p>
