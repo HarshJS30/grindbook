@@ -27,6 +27,10 @@ app.use(cors({
     credentials: true,
 }));
 
+app.get('/ping', (req, res) => {
+    res.status(200).send('Pong');
+});
+
 app.use(cookieParser()); 
 app.use(express.json());
 app.use('/',authRoute);
