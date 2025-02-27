@@ -750,7 +750,7 @@ to {
     }
 }
 
-/* Additional mobile optimizations */
+
 @media screen and (max-width: 320px) {
     .hero h1 {
         font-size: 2rem;
@@ -774,7 +774,7 @@ to {
     }
 }
 
-/* Touch device optimizations */
+
 @media (hover: none) {
     .cta button,
     .glow-orange,
