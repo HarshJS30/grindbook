@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FaExternalLinkAlt, FaBook, FaTags, FaStickyNote } from "react-icons/fa";
 import tree from "../assets/tree.avif";
 import bgimg from "../assets/57.webp";
+import { HashLoader } from 'react-spinners';
 
 export default function QuestionDetail() {
     const { id } = useParams();
@@ -37,7 +38,11 @@ export default function QuestionDetail() {
     }, [id]);
 
     if (loading) {
-        return <p className="loading">Loading question...</p>;
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', position: 'relative' }}>
+                <HashLoader size={60} color={'#3498db'} loading={loading} />
+            </div>
+        );
     }
 
     if (error) {
@@ -52,9 +57,9 @@ export default function QuestionDetail() {
     };
 
     return (
-        <div className="question-detail">
+        <div className="question-detail" style={{position:'relative'}}>
             <div className="overlay"></div>
-            <img className="background-img" 
+            <img className="background-img"
                 style={{
                     backgroundImage: `url(${bgimg})`,
                     backgroundSize: 'cover',

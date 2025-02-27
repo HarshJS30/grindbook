@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import photo from "../assets/about.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
     const ref = useRef(null);
@@ -9,6 +10,7 @@ export default function About() {
     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const x = useTransform(scrollYProgress, [0, 1], [-100, 0]); 
     const y = useTransform(scrollYProgress, [0, 1], [50, 0]);
+    const navigate = useNavigate();
 
     return (
         <div className="about" ref={ref}>
@@ -24,11 +26,11 @@ export default function About() {
                 </motion.p>
 
                 <motion.div className="buttons1" style={{ opacity, y }}>
-                    <motion.button className="log" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                    <motion.button className="log" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={()=>navigate('/login')}>
                         Start Logging
                     </motion.button>
                     <motion.button className="rev" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        See reviews
+                        See features
                     </motion.button>
                 </motion.div>
             </motion.div>

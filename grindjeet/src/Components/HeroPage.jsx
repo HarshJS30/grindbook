@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import grindjeet from "../assets/cover1.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
+    const navigate = useNavigate();
     return (
         <div
             className="hero"
@@ -39,6 +41,7 @@ export default function MainPage() {
                     className="glow-orange"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={()=>navigate('/login')}
                 >
                     Get Started for free
                 </motion.button>
