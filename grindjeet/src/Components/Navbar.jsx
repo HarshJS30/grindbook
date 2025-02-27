@@ -16,7 +16,7 @@ export default function Navbar() {
     color: "#ffffff",
     padding: "8px 12px",
     border: "1px solid #ffffff",
-    borderRadius: "4px",
+    borderRadius : '0.7rem'
   };
 
   return (
@@ -82,23 +82,11 @@ export default function Navbar() {
           <button
             className="sign"
             onClick={() => navigate("/signup")}
-            style={{
-              ...baseStyle,
-              ...(hoveredItem === "sign" ? hoverStyle : {}),
-            }}
-            onMouseEnter={() => setHoveredItem("sign")}
-            onMouseLeave={() => setHoveredItem(null)}
           >
             Sign in
           </button>
           <button
             className="blogs"
-            style={{
-              ...baseStyle,
-              ...(hoveredItem === "blogs" ? hoverStyle : {}),
-            }}
-            onMouseEnter={() => setHoveredItem("blogs")}
-            onMouseLeave={() => setHoveredItem(null)}
           >
             Blogs
           </button>

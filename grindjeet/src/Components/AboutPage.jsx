@@ -30,7 +30,7 @@ export default function About() {
                         Start Logging
                     </motion.button>
                     <motion.button className="rev" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        See features
+                        See 
                     </motion.button>
                 </motion.div>
             </motion.div>

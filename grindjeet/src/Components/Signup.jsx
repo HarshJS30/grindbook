@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import coverImage from '../assets/hey.png';
 import logo from '../assets/logoo.png';
-import { HashLoader } from 'react-spinners'; // Import HashLoader
+import { HashLoader } from 'react-spinners'; 
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ export default function Signup() {
       return;
     }
 
-    setLoading(true); // Set loading to true
+    setLoading(true); 
     setError('');
 
     try {
@@ -44,7 +44,7 @@ export default function Signup() {
       console.error(err);
       setError('Something went wrong. Please try again.');
     } finally {
-      setLoading(false); // Set loading to false
+      setLoading(false); 
     }
   };
 
@@ -59,7 +59,7 @@ export default function Signup() {
           backgroundRepeat: 'no-repeat',
           minHeight: '100vh',
           width: '100%',
-          position: 'relative', // Added relative positioning
+          position: 'relative', 
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

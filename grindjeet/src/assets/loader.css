@@ -1,0 +1,53 @@
+.container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  
+  .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #3498db;
+    border-radius: 50%;
+    --scale: 1;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(50px) scale(var(--scale));
+    animation: pulse 1s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      --scale: 0;
+    }
+    50% {
+      --scale: 1.5;
+    }
+  }
+  
+  .box:nth-child(1) {
+    --angle: 0deg;
+    animation-delay: 0s;
+  }
+  
+  .box:nth-child(2) {
+    --angle: 72deg;
+    animation-delay: 0.2s;
+  }
+  
+  .box:nth-child(3) {
+    --angle: 144deg;
+    animation-delay: 0.4s;
+  }
+  
+  .box:nth-child(4) {
+    --angle: 216deg;
+    animation-delay: 0.6s;
+  }
+  
+  .box:nth-child(5) {
+    --angle: 288deg;
+    animation-delay: 0.8s;
+  }
