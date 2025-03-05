@@ -56,6 +56,24 @@ export default function QuestionDetail() {
         return link;
     };
 
+    const handleDelete = async () => {
+        setLoading(true);
+        try {
+            const response = await fetch(`https://grindbook.onrender.com/api/questions/${id}`, {
+                method: "DELETE",
+                credentials: "include",
+            });
+    
+            if (!response.ok) throw new Error("Failed to delete");
+            navigate('/dashboard');
+        } catch (error) {
+            console.error(error);
+            alert("Failed to delete the question.");
+        }
+        setLoading(false);
+    };
+    
+
     return (
         <div className="question-detail" style={{position:'relative'}}>
             <div className="overlay"></div>
@@ -74,6 +92,7 @@ export default function QuestionDetail() {
                 <div className="details">
                     <h1>{question.title}</h1>
                     <button onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
+                    <button className="delete" onClick={handleDelete}>Delete this Question</button>
                     <p className="link">
                         <FaExternalLinkAlt className="icon" />
                         <strong> Link:</strong>

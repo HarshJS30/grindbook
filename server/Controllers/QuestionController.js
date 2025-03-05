@@ -49,8 +49,23 @@ const getQuestionById = async (req, res) => {
     }
 };
 
+const deleteQuestion = async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const deletedQuestion = await Question.findByIdAndDelete(id);
+
+        if(!deletedQuestion){
+            return res.status(402).json({message:"Question not found"})
+        }
+        res.status(200).json({message:"Question Deleted"})      
+    }catch(err){
+        res.status(500).json({message:"Something up with backend"})
+    }
+}
+
 module.exports = {
     createQuestion,
     getQuestions,
     getQuestionById,
+    deleteQuestion,
 };
